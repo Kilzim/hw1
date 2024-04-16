@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS roles;
 -- TODO!
 
 CREATE TABLE movies (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     year INTEGER,
     rating TEXT,
@@ -130,17 +130,17 @@ CREATE TABLE movies (
 );
 
 CREATE TABLE studios (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
 
 CREATE TABLE actors (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
 );
 
 CREATE TABLE roles (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_id INTEGER,
     actor_id INTEGER,
     character_name TEXT
