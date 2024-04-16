@@ -126,8 +126,7 @@ CREATE TABLE movies (
     title TEXT,
     year INTEGER,
     rating TEXT,
-    studio_id INTEGER,
-    FOREIGN KEY (studio_id) REFERENCES studios (id)
+    studio_id INTEGER
 );
 
 CREATE TABLE studios (
@@ -144,9 +143,7 @@ CREATE TABLE roles (
     id INTEGER PRIMARY KEY,
     movie_id INTEGER,
     actor_id INTEGER,
-    character_name TEXT,
-    FOREIGN KEY (movie_id) REFERENCES movies (id),
-    FOREIGN KEY (actor_id) REFERENCES actors (id)
+    character_name TEXT
 );
 
 -- Insert data into your database that reflects the sample data shown above
@@ -215,8 +212,8 @@ ORDER BY movies.year;
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT m.title AS movies_title, a.name AS actors_name, r.character_name
-FROM movies m
-JOIN roles r ON m.id = r.movie_id
-JOIN actors a ON r.actor_id = a.id
-ORDER BY m.title, r.character_name;
+SELECT title, actors.name, roles.character_name
+FROM movies
+JOIN roles ON movies.id = roles.movie_id
+JOIN actors ON roles.actor_id = actors.id
+ORDER BY movies.title, roles.character_name;
