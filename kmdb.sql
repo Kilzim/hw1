@@ -215,12 +215,6 @@ ORDER BY movies.year;
 -- The SQL statement for the cast output
 -- TODO!
 
--- SELECT title, roles.character_name
--- FROM movies
--- JOIN roles on movies.title = roles.actor_id
--- ORDER by movies.title;
-
-
 SELECT m.title AS movies_title, a.name AS actors_name, r.character_name
 FROM movies m
 JOIN roles r ON m.id = r.movie_id
