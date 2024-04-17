@@ -106,9 +106,9 @@
 -- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
 -- The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
--- Turns column mode on but headers off
+-- Turns column mode on but headers off/on
 .mode column
-.headers off
+.headers on
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -188,7 +188,8 @@ INSERT INTO roles (id, movie_id, actor_id, character_name) VALUES
 (15, 3, 11, 'Selina Kyle');
 
 -- Prints a header for the movies output
-
+.print "__________________________________________________________________"
+.print ""
 .print "Movies"
 .print "======"
 .print ""
@@ -217,3 +218,6 @@ FROM movies
 JOIN roles ON movies.id = roles.movie_id
 JOIN actors ON roles.actor_id = actors.id
 ORDER BY movies.title, roles.character_name;
+
+.print "__________________________________________________________________"
+.print ""
